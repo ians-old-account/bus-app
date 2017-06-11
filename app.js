@@ -38,10 +38,12 @@ class Bus {
     }
 
     //getStops function that all Bus objects will get
+    //this function loops over the 'route'Stops array and enters each stop name into an <li> tag, ready to be inserted in the DOM.
     getStops() {
         var stops = '<h3>';
         for (var i = 0; i < this.stops.length; i++) {
-            stops += "<li>"+this.stops[i]+"</li>"
+            //stops += "<li id="this.stops[i]">"+this.stops[i]+"</li>"
+            stops += "<li class='busStop'>"+this.stops[i]+"</li>"
         }
         stops += '</h3>'
         return stops
@@ -49,12 +51,10 @@ class Bus {
 
     //more functions for all objects go here
 
-
-
 }
 
 /*===========================
-            OBJECTS
+      CREATE BUS OBJECTS
 ============================*/
 
 var awapuni = new Bus ("Awapuni",
@@ -178,11 +178,16 @@ for (var i = 0; i < buses.length; i++ ) {
 ============================*/
 $(document).ready(function(){
 
+    //SHOW BUS STOPS IN MENU, WHEN ROUTE CLICKED
     $(".stopsMenu").hide();
-
     $(".bus").click(function(){
         $("#"+this.id+"Stops").html( eval(this.id).getStops() );
         $("#"+this.id+"Stops").slideToggle();
+    });
+
+    //SHOW BUS INFORMATION, WHEN STOP CLICKED
+    $(".busStop").click(function(){
+       alert(this.Text)
     });
 
 });
