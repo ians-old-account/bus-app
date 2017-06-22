@@ -51,7 +51,7 @@ aside {
 main {
     display:flex;
     flex-direction: column;
-    justify-content: center;
+/*    justify-content: center;*/
     align-items: center;
     width: 50%;
 }
@@ -90,3 +90,6 @@ li {
     width: 80%;
 }
 
+.timesRow {
+    padding: 0 5px;
+}
